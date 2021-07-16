@@ -1,13 +1,19 @@
 const express = require("express");
 const app = express();
+const morgan = require("morgan");
 
-app.get("/", (req, res) => {
-	res.status(200).send("Hello, world!").end();
+const port = 3000;
+const appRouter = require("./routes");
+
+app.use(express.json());
+app.use("/", appRouter);
+
+app.use(morgan("short"));
+
+app.listen(port, () => {
+	console.log(`Example app listening at http://localhost:${port}`);
 });
 
-// Start the server
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-	console.log(`App listening on port ${PORT}`);
-	console.log("Press Ctrl+C to quit.");
+app.on("error", () => {
+	console.log("Unable to start server");
 });
