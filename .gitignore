@@ -78,3 +78,6 @@ typings/
 # Linter
 .vscode/
 .prettierrc
+
+# Security
+*.pem

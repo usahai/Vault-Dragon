@@ -10,8 +10,6 @@ router.post("/", async (req, res, next) => {
 
 		let response = await storeServices.insertKeyValuePair(key, value);
 
-		console.log("[SR] response: ", response);
-
 		res.status(200).send({
 			key: key,
 			value: value,
