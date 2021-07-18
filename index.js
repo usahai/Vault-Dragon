@@ -10,7 +10,7 @@ app.use(morgan(":method :url :status :res[content-length] - :response-time ms"))
 app.use("/", appRouter);
 
 app.listen(process.env.PORT, () => {
-	console.log(`App listening at http://localhost:${process.env.PORT}`);
+	console.log(`App listening on server`);
 });
 
 app.on("error", () => {
